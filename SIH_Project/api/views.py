@@ -1,15 +1,6 @@
 from django.shortcuts import render
-from .models import name, audio
-from django.http import HttpResponse
+from rest_framework import generics
 
 # Create your views here.
-
-def index(request):
-    return render(request, 'index.html')
-
-def add_name(request):
-    records = {
-        "name" : "chinmay",
-    }
-    name.insert_one(records)
-    return HttpResponse("Name Added")
+def main(request):
+    return render(request, 'frontend/index.html')
