@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import main
+from .views import AudioView, CreateAudioEntryView
 
 urlpatterns = [
-    path('', main)
+    path('audio', AudioView.as_view()),
+    path('create-audio-entry', CreateAudioEntryView.as_view())
 ]
