@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import AudioEntry
 from .serializers import AudioEntrySerializer, CreateAudioEntrySerializer
+import openai
 
 # Create your views here.
 
@@ -23,6 +24,7 @@ class CreateAudioEntryView(APIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             audio_file = serializer.data.get('audio_file')
-            audio_entry = AudioEntry(audio_file=audio_file)
+            transcript = openai.Audio.transcribe("whisper-1", audio_file)
+            audio_entry = AudioEntry(audio_file=audio_file, transcript=transcript)
             audio_entry.save()
             return Response(AudioEntrySerializer(audio_entry).data, status=status.HTTP_201_CREATED)
