@@ -4,7 +4,7 @@ from .models import AudioEntry
 class AudioEntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = AudioEntry
-        fields = ['id','audio_file', 'sentiment', 'suggestions', 'created_at']
+        fields = ['id','audio_file', 'sentiment', 'suggestions', 'created_at', 'transcript']
 
 class CreateAudioEntrySerializer(serializers.ModelSerializer):
     class Meta:
