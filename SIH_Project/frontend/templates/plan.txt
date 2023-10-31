@@ -1,0 +1,35 @@
+Problem statement: Make a sentiment analysis tool for calls received at a helpdesk
+
+Problem Description: 
+The problem at hand involves developing a sentiment analysis solution specifically tailored for analyzing the sentiment of incoming calls in helpdesks, call centers, and customer services. With the ever-increasing volume of customer interactions in these domains, it is crucial for businesses to gain insights into the sentiments expressed by their customers during phone conversations. Sentiment analysis refers to the process of automatically determining the sentiment or emotional tone conveyed by a text or speech. In the context of incoming calls, sentiment analysis can provide valuable information about customer satisfaction, identify potential issues, and highlight areas for improvement in customer service delivery.
+
+API based Solution:
+We aim to develop a seamlessly integrable and rapidly scalable API, that can be used with any call centre software to analyse the calls that the software records.
+We also plan to develop a mobile application that records the calls for the call centre to append with the API, as a proof of concept.
+
+The showstopper : what sets us apart?
+There are several software that analyse call centre data during post processing and at the end of business cycles. Our Solution rather works on real time data, instantaneously processing the call the moment it finishes.
+The solution is developed with minimum infrastructure, having all storage and computing utilities on cloud, making it secure and essentially indefinitely scalable.
+Since the model is based on Machine Learning, the tool will constantly keep updating itself with real time data, tracking critical changes that may occur in short time, directing and making room for spontaneous changes, which would otherwise lose relevancy in the post processing. This allows for dynamic time frames of data analysis.
+
+Implementation strategy:
+As a proof of concept we aim to develop a mobile app which will record the incoming calls at a call centre, which will upload calls as audio files to a storage bucket on cloud. (The audio will be sent as payload via the API, which is the flagship project. This API can then be integrated with any other similar call centre software or application.)
+The calls will first undergo a preprocessing, where they will bifurcated and marked with the tags “positive”, “negative” and “neutral” according to a basic sentimental analysis model, and will be stored in a storage bucket.
+A more rigorous model will be employed to further analyse the “negative” marked calls, employing AI to target the specifics of customer requirements and to generate constructive critical feedback for improvement.
+This data can then be used for further analysis and processing.
+
+App design and implementation:
+App template and UI design: Figma
+Frontend of mobile app: React native, Tailwind CSS
+Scripting: JavaScript
+
+API design and implementation:
+Database: Amazon S3 (AWS cloud)
+API interface: AWS API Gateway (AWS cloud)
+Machine Learning models and AI utilities:
+RoBERTa (Hugging Face Transformer) [sentiment analysis]
+Whisper (OpenAI) [transcription for detailed analysis]
+pyABSA library [sentiment analysis]
+
+
+
